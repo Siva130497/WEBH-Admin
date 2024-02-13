@@ -1,0 +1,54 @@
+.topic-view-container
+{
+    margin-inline:1rem  !important;
+    background-color: white !important;
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+.topic-view-container .topic-view-card{
+    margin: auto !important;
+}
+.topic-view-container .topic-view-card .topic-view-card-category{
+    text-align: left;
+    padding: .5rem;
+}
+.topic-view-container .topic-view-card .topic-view-card-name-list{
+    margin: auto;
+    display: flex;
+    align-items: center;
+}
+.topic-view-container .topic-view-card .topic-view-card-body{
+    display: flex;
+    flex-direction: column;
+}
+
+.no-respond{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font: 50px;
+}
+.topic-view-container-btns{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+.topic-view-container-btns .btn{
+    margin: 1rem;
+    width: 30%;
+    background-color: gray;
+    color: white;
+}
+
+.topic-view-container-btns .delete{
+    background-color: red !important;
+}
+
+@media (max-width:650px) {
+    .topic-view-container-btns .btn{
+        margin: 1rem;
+        width: 80%;
+    }
+    
+}

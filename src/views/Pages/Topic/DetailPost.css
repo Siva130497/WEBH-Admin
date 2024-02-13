@@ -1,0 +1,43 @@
+.post-details-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: white;
+    border-radius: 5px;
+    margin: auto;
+}
+
+.post-details-container .post-details-card-details{
+    display: flex;
+    flex-direction: column;
+
+}
+.post-details-container .post-details-card-details h1{
+    display: block;
+    margin: 1rem;
+}
+
+.post-details-container .post-details-card-details h3{
+    display: block;
+    margin-inline: 1rem;
+}
+.post-details-comment-list{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: auto;
+    margin-top: 1rem;
+    width: 90%;
+}
+
+.no-respond{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font: 50px;
+}
+
+.post-details-comment-heading{
+    display: block;
+    text-align: center;
+}

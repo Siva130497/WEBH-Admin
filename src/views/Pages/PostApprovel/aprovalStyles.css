@@ -1,0 +1,17 @@
+.tr:hover
+{
+    background-color: aqua;
+    cursor: pointer;
+}
+
+.btns
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.btns a{
+    width: 49%;
+    margin: 0%;
+}

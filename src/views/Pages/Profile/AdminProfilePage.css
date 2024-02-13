@@ -1,0 +1,115 @@
+.profile-line {
+    height: 50hv;
+    color: black;
+    box-shadow: 0 1px 5px black;
+    margin: 1rem;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.profile-page-image {
+    width: 30%;
+    height: 200px;
+    border-radius: 15%;
+    margin: auto;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.profile-content {
+    text-align: center;
+    padding-bottom: 1rem;
+}
+
+.profile-content .btn button{
+    border: 1px solid white;
+    padding: .5rem;
+    margin: 1rem;
+    padding-inline: 3rem;
+    background-color: none;
+    transition: all .5s;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+}
+.profile-content .image-btn{
+    background-color: blue;
+
+}
+.profile-content {
+    display: block;
+    font-size: 20px;
+}
+
+.profile-content>span {
+    display: block;
+    font-size: 20px;
+}
+
+.profile-content .btn{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+@media (max-width:600px) {
+    .profile-line .profile-content .btn{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .profile-content  .btn button{
+        width: 70% !important;
+        display: block;
+        margin: auto;
+        margin-bottom: 1rem;
+    }
+    .profile-line .profile-page-image{
+        width: 90%;
+    }
+    
+
+}
+
+.profile-content  .btn button{
+    width: 40%;
+}
+
+.edit-profile-button{
+    color: white;
+    background-color: rgb(149, 7, 7);
+    padding: 1rem !important;
+    padding-inline: 3rem !important;
+    transition: all .5s;
+}
+
+.edit-profile-button:hover {
+    background: blue;
+}
+.image-btn:hover{
+    background-color: red;
+}
+
+.profile-info {
+    background: #f1ecec;
+    margin-top: .5rem;
+}
+
+.postManagement-container
+{
+    margin-inline:1rem  !important;
+    background-color: white !important;
+    border-radius: 5px;
+}
+
+.postManagement-container .postManagement-card{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
