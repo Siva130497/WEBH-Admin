@@ -127,6 +127,9 @@ const NameDetail = lazy(() => import('../../views/Pages/Topic/NameDetail'))
 const AllFeedback = lazy(() => import('../../views/Pages/Feedback/AllFeedback'))
 const ViewFeedback = lazy(() => import('../../views/Pages/Feedback/ViewFeedback'))
 
+//Contact
+const AllContact = lazy(() => import('../../views/Pages/Contacts/AllContacts.js'))
+
 //Questions
 const AllQuestion = lazy(() => import('../../views/Pages/Question/AllQuestion'))
 const ViewQuestion = lazy(() => import('../../views/Pages/Question/ViewQuestion'))
@@ -421,6 +424,10 @@ const Routes = [
   {
     path: "/feedbacks",
     element: <AllFeedback />
+  },
+  {
+    path: "/contacts",
+    element: <AllContact />
   },
   {
     path: "/feedbacks/:id",

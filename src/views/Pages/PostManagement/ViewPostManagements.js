@@ -1,6 +1,6 @@
 /* eslint-disable no-tabs */
 import React, { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+// import { useNavigate } from 'react-router-dom'
 import {
 	Card,
 	CardHeader,
@@ -15,7 +15,7 @@ import './ViewPostManagements.css'
 
 function ViewPostManagements() {
 	const [posts, setPosts] = useState()
-	const navigate = useNavigate()
+	// const navigate = useNavigate()
 	const [isSignedIn, setIsSignedIn] = useState(false)
 	const [user, setUser] = useState('')
 
@@ -55,18 +55,18 @@ function ViewPostManagements() {
 		sendRequest()
 	}, [])
 
-	const routerHandler = () => {
-		navigate('/addPostManagement')
-	}
+	// const routerHandler = () => {
+	// 	navigate('/addPostManagement')
+	// }
 
 	return (
 		<>
 			{user ? (
 				<div className="postManagement-container">
 					<div className="postManagement-card">
-						<button className="btn" onClick={routerHandler}>
+						{/* <button className="btn" onClick={routerHandler}>
 							Add postManagement
-						</button>
+						</button> */}
 						<div className="postManagement-card-body">
 							{posts && <PostManagementList data={posts} />}
 							{!posts && <p>There is no postManagements</p>}

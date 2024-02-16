@@ -1,6 +1,6 @@
 /* eslint-disable no-tabs */
 import React, { useState, useEffect } from 'react'
-import { Navigate, useNavigate } from 'react-router-dom'
+// import { Navigate, useNavigate } from 'react-router-dom'
 import {
 	Card,
 	CardHeader,
@@ -16,7 +16,7 @@ import { RotatingLines } from 'react-loader-spinner'
 
 function ViewAnalytics() {
 	const [trends, setTrends] = useState()
-	const navigate = useNavigate()
+	// const navigate = useNavigate()
 	const [isSignedIn, setIsSignedIn] = useState(false)
 	const [user, setUser] = useState('')
 	useEffect(() => {
@@ -61,18 +61,18 @@ function ViewAnalytics() {
 		[]
 	)
 
-	const routerHandler = () => {
-		navigate('/addAdvertisement')
-	}
+	// const routerHandler = () => {
+	// 	navigate('/addAdvertisement')
+	// }
 
 	return (
 		<>
 			{user ? (
 				<div className="postManagement-container">
 					<div className="postManagement-card">
-						<button className="btn" onClick={routerHandler}>
+						{/* <button className="btn" onClick={routerHandler}>
 							Add Advertisement
-						</button>
+						</button> */}
 						<div className="postManagement-card-body">
 							{trends && <AdvertisementList data={trends} />}
 							{trends && trends.length <= 0 && <p>There is no Advertisement</p>}

@@ -9,6 +9,7 @@ import {
 	Input,
 	CardGroup
 } from 'reactstrap'
+import swal from 'sweetalert'
 
 const EditUser = () => {
 	const { id } = useParams()
@@ -65,8 +66,12 @@ const EditUser = () => {
 			})
 				.then(res => {
 					console.log(res)
-					alert('Updated successfully.')
-					navigate('/advices')
+					// alert('Updated successfully.')
+					swal("Updated successfully.")
+					setTimeout(() => {
+						navigate('/advices')
+					  }, 3000) // Refresh after 3 seconds
+					
 				})
 				.catch(err => {
 					console.log(err.message)
@@ -79,8 +84,10 @@ const EditUser = () => {
 			})
 				.then(res => {
 					console.log(res)
-					alert('Updated successfully.')
-					navigate('/advices')
+					swal("Updated successfully.")
+					setTimeout(() => {
+						navigate('/advices')
+					  }, 3000) // Refresh after 3 seconds
 				})
 				.catch(err => {
 					console.log(err.message)
@@ -95,8 +102,10 @@ const EditUser = () => {
 		})
 			.then(res => {
 				console.log(res)
-				alert('Updated successfully.')
-				navigate('/advices')
+				swal("Updated successfully.")
+					setTimeout(() => {
+						navigate('/advices')
+					  }, 3000) // Refresh after 3 seconds
 			})
 			.catch(err => {
 				console.log(err.message)

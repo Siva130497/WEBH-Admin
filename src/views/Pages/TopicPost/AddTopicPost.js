@@ -23,7 +23,7 @@ function AddTopicPost() {
 	const [nameValidate, setNameValidate] = useState(true)
 	const [descValidate, setDescValidate] = useState(true)
 	const [categoryValidate, setCategoryValidate] = useState(true)
-	const [imageValidate, setImageValidate] = useState(true)
+	// const [imageValidate, setImageValidate] = useState(true)
 	const [categoryList, setCategoryList] = useState()
 
 	const [names, setNames] = useState()
@@ -94,9 +94,9 @@ function AddTopicPost() {
 
 	const catchFileDataHandler = e => {
 		if (e.name === '') {
-			setImageValidate(false)
+			// setImageValidate(false)
 		} else {
-			setImageValidate(true)
+			// setImageValidate(true)
 			setSelectedFile(e)
 		}
 	}
@@ -118,32 +118,34 @@ function AddTopicPost() {
 			return
 		}
 
-		if (selectedFile === undefined) {
-			setImageValidate(false)
-			return
-		}
+		// if (selectedFile === undefined) {
+		// 	// setImageValidate(false)
+		// 	return
+		// }
 
 		console.log('validate')
 		// console.log(names)
-
 		let image
-		const formData = new FormData()
-		formData.append('file', selectedFile)
-		formData.append('upload_preset', 'feed_images')
 
-		try {
-			await axios
-				.post(
-					'https://api.cloudinary.com/v1_1/movie-reservation/image/upload',
-					formData
-				)
-				.then(res => {
-					image = res.data.secure_url
-				})
-		} catch (error) {
-			alert(error)
+		if (selectedFile) {
+			const formData = new FormData()
+			formData.append('file', selectedFile)
+			formData.append('upload_preset', 'feed_images')
+
+			try {
+				await axios
+					.post(
+						'https://api.cloudinary.com/v1_1/movie-reservation/image/upload',
+						formData
+					)
+					.then(res => {
+						image = res.data.secure_url
+					})
+			} catch (error) {
+				alert(error)
+			}
 		}
-
+		
 		try {
 			const response = await fetch(`${process.env.REACT_APP_BASE_URL}/topicPost`, {
 				method: 'POST',
@@ -152,7 +154,7 @@ function AddTopicPost() {
 					category,
 					name,
 					desc,
-					image
+					image : image ? image : ""
 				})
 			})
 
@@ -223,9 +225,9 @@ function AddTopicPost() {
 				<div className="edit-postManagement-group edit-postManagement-group-image">
 					<h5>Add Image</h5>
 					<ImageUploader onInput={catchFileDataHandler} />
-					{!imageValidate && (
+					{/* {!imageValidate && (
 						<p style={{ color: 'Red' }}>Image should be selected</p>
-					)}
+					)} */}
 				</div>
 				<button type="submit" className="btn" color="primary">
 					Add

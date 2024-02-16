@@ -1,7 +1,7 @@
 /* eslint-disable no-tabs */
 import React, { useState, useEffect } from 'react'
 import { RotatingLines } from 'react-loader-spinner'
-import { useNavigate } from 'react-router-dom'
+// import { useNavigate } from 'react-router-dom'
 import {
 	Card,
 	CardHeader,
@@ -16,7 +16,7 @@ import './ViewPostManagements.css'
 
 function ViewNewses() {
 	const [newses, setNewses] = useState()
-	const navigate = useNavigate()
+	// const navigate = useNavigate()
 	const [isSignedIn, setIsSignedIn] = useState(false)
 	const [user, setUser] = useState('')
 
@@ -56,18 +56,18 @@ function ViewNewses() {
 		sendRequest()
 	}, [])
 
-	const routerHandler = () => {
-		navigate('/addNews')
-	}
+	// const routerHandler = () => {
+	// 	navigate('/addNews')
+	// }
 
 	return (
 		<>
 			{user ? (
 				<div className="postManagement-container">
 					<div className="postManagement-card">
-						<button className="btn" onClick={routerHandler}>
+						{/* <button className="btn" onClick={routerHandler}>
 							Add News
-						</button>
+						</button> */}
 						<div className="postManagement-card-body">
 							{newses && <NewsList data={newses} />}
 							{newses && newses.length === 0 && <p>There is no Newses</p>}

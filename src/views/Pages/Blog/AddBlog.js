@@ -13,7 +13,7 @@ function AddSkill() {
 	const [selectedFile, setSelectedFile] = useState()
 	const [topicValidate, setTopicValidate] = useState(false)
 	const [contentValidate, setContentValidate] = useState(false)
-	const [imageValidate, setImageValidate] = useState(false)
+	// const [imageValidate, setImageValidate] = useState(false)
 
 	const [topicTouched, setTopicTouched] = useState(false)
 	const [descTouched, setDescTouched] = useState(false)
@@ -23,8 +23,8 @@ function AddSkill() {
 	const validDesc = !contentValidate && descTouched
 
 	useEffect(() => {
-		setFormValidate(topicValidate && contentValidate && imageValidate)
-	}, [topicValidate, contentValidate, imageValidate])
+		setFormValidate(topicValidate && contentValidate)
+	}, [topicValidate, contentValidate])
 
 	const titleHandler = e => {
 		setTopicTouched(true)
@@ -48,9 +48,9 @@ function AddSkill() {
 
 	const catchFileDataHandler = e => {
 		if (e.name === '') {
-			setImageValidate(false)
+			// setImageValidate(false)
 		} else {
-			setImageValidate(true)
+			// setImageValidate(true)
 			setSelectedFile(e)
 		}
 	}
@@ -78,30 +78,32 @@ function AddSkill() {
 		setTopicTouched(true)
 		setDescTouched(true)
 
-		if (selectedFile === undefined) {
-			setImageValidate(false)
-			return
-		}
+		// if (selectedFile === undefined) {
+		// 	setImageValidate(false)
+		// 	return
+		// }
 
 		let image
 
-		const formData = new FormData()
-		formData.append('file', selectedFile)
-		formData.append('upload_preset', 'feed_images')
+		if (selectedFile) {
+			const formData = new FormData()
+			formData.append('file', selectedFile)
+			formData.append('upload_preset', 'feed_images')
 
-		try {
-			await axios
-				.post(
-					'https://api.cloudinary.com/v1_1/movie-reservation/image/upload',
-					formData
-				)
-				.then(res => {
-					image = res.data.secure_url
-				})
-		} catch (error) {
-			alert(error)
+			try {
+				await axios
+					.post(
+						'https://api.cloudinary.com/v1_1/movie-reservation/image/upload',
+						formData
+					)
+					.then(res => {
+						image = res.data.secure_url
+					})
+			} catch (error) {
+				alert(error)
+			}
 		}
-
+		
 		try {
 			const response = await fetch(`${process.env.REACT_APP_BASE_URL}/blog`, {
 				method: 'POST',
@@ -109,7 +111,7 @@ function AddSkill() {
 				body: JSON.stringify({
 					name: topic,
 					desc: content,
-					image
+					image: image ? image : ""
 				})
 			})
 

@@ -98,7 +98,7 @@ const AllUsers = () => {
 
 	const handleAddPoints = () => {
 		console.log(selectedUser)
-		fetch(`${process.env.REACT_APP_BASE_URL}/user/add-points/${selectedUser}`, {
+		fetch(`http://localhost:8070/user/add-points/${selectedUser}`, {
 			method: 'POST',
 			body: JSON.stringify({
 				points: Number(points)
