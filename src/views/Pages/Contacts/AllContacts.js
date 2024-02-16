@@ -42,7 +42,7 @@ const AllContact = () => {
 	// }
 
 	useEffect(() => {
-		fetch(`http://localhost:8070/contact`)
+		fetch(`${process.env.REACT_APP_BASE_URL}/contact`)
 			.then(res => {
 				return res.json()
 			})
