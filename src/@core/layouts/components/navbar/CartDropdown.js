@@ -12,7 +12,7 @@ import { Dropdown, DropdownMenu, DropdownToggle, DropdownItem, Badge, Button } f
 
 // ** Store & Actions
 import { useDispatch, useSelector } from 'react-redux'
-import { getCartItems, deleteCartItem, getProduct } from '@src/views/apps/ecommerce/store'
+// import { getCartItems, deleteCartItem, getProduct } from '@src/views/apps/ecommerce/store'
 
 // ** Styles
 import '@styles/react/libs/input-number/input-number.scss'

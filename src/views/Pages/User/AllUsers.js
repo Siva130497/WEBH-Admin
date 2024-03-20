@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import Button from 'react-bootstrap/Button'
 import Modal from 'react-bootstrap/Modal'
 
+
 import {
 	Mail,
 	Home,
@@ -26,6 +27,11 @@ const AllUsers = () => {
 	const [selectedUser, setSelectedUser] = useState(null)
 	const [show, setShow] = useState(false)
 	const [points, setPoints] = useState(0)
+	const [value, setValue] = useState("")
+
+	const onChange = (event) => {
+		setValue(event.target.value)
+	  }
 
 	const handleClose = () => {
 		setShow(false)
@@ -130,6 +136,11 @@ const AllUsers = () => {
 						<div className="card-title">
 							<h2 className="m-2">Users</h2>
 						</div>
+						<input
+						value={value}
+						onChange={onChange}/>
+						
+						
 						<div className="table-responsive">
 							<table className="table">
 								<thead className="primary">
@@ -145,9 +156,19 @@ const AllUsers = () => {
 								</thead>
 
 								<tbody style={{ textAlign: 'left' }}>
-									{userData &&
-										userData.map(item => (
-											<tr key={item._id} >
+									
+								{userData && Array.from(userData)
+    .filter((item) => {
+        const searchTerm = value.toLowerCase()
+        const userId = item?.webhId?.toLowerCase()
+        const firstName = item.firstname.toLowerCase()
+        return (userId && userId === searchTerm) || (firstName && firstName.startsWith(searchTerm))
+    })
+    
+    .map((item) => {
+        
+            return (
+                <tr key={item._id} >
 												<td>{item.firstname}</td>
 												<td>{item.lastname}</td>
 												<td>{item.email}</td>
@@ -156,7 +177,12 @@ const AllUsers = () => {
 												<td>{item.profilePoints}</td>
 												<td><PlusCircle style={{ marginRight: 10 }} onClick={() => addPointsUser(item._id)} /><Eye onClick={() => LoadDetail(item._id)} /></td>
 											</tr>
-										))}
+            )
+        
+        
+    })}
+											
+										
 								</tbody>
 							</table>
 						</div>

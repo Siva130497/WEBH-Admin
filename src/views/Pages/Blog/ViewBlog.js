@@ -66,7 +66,7 @@ const ViewBlog = () => {
 				/>
 			)}
 			<div className="view-postManagement-card">
-				{blog && (
+				{blog?.image && (
 					<div className="image">
 						<img src={blog.image} />
 					</div>
